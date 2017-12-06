@@ -6,5 +6,29 @@
     "default": 10,
     "max": 50
   },
-  "mongodb": "mongodb://demo:demo@ds123136.mlab.com:23136/butterfly"
+  "mongodb": "mongodb://demo:demo@ds123136.mlab.com:23136/butterfly",
+  "authentication": {
+    "secret": "6c84fe52c9c35a738427a6cbd528c1c02c471d4e7d27668977b1f99d9587e05896c5ae0db759831c6d65124b3c6afea5b9fc81c8001c9de1cb13570a4eac8e0581aafdd483a8cbcd63209b936c9daefdc07f7285fa3199c4e0ab1be947a1eb6f1c0169bc7527008d7e9988debc67985b3fb5008eacc6c86b0e6ac48517090f5cd9f40d9f013043aba975ba0943cdcf8288770460a087de34a7548069ec6ee65b07a1cba1f9c34822515b6ffa874fbfbd664e2e2390253e32f464e0afed0d3fe924b7ccec026627c1710f3cd41a4e5b02fcb0cd51041f65b40b7744d5a0e7fc75daca40ef16ad4895332c7bbe60f3d7777ba1812ba2690e33d76b673adc392fad",
+    "strategies": [
+      "jwt",
+      "local"
+    ],
+    "path": "/authentication",
+    "service": "users",
+    "jwt": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "subject": "anonymous",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "user",
+      "usernameField": "email",
+      "passwordField": "password"
+    }
+  }
 }
